@@ -5,14 +5,13 @@ import CustomHeader from '../component/Header';
 import { appIcons } from '../Assets';    
 import NavService from '../helpers/NavService';
 import { useDispatch, useSelector } from 'react-redux';
-import { addPrduct } from '../redux/actions/appAction';
+import { addPrduct,deleteProduct } from '../redux/actions/appAction';
 
 const ProductCart = () => {
   const productData = useSelector((state)=> state.appReducer?.data)
   const dispatch = useDispatch()
   const onDeleteProduct = (id) => {
-    const filterProduct =  productData?.filter((item)=> item?.id !== id)
-    dispatch(addPrduct(filterProduct))
+    dispatch(deleteProduct(id))
   }
   return (
     <View style={styles.container}>
